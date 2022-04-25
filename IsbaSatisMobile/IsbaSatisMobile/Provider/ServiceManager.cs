@@ -12,7 +12,7 @@ namespace IsbaSatisMobile.Provider
 {
     public class ServiceManager
     {
-        string url = "http://192.168.1.242/isbasatis.WebApi/api/Data/";
+        string url = "http://192.168.3.42/isbasatis.WebApi/api/Data/";
         private async Task<HttpClient> GetClient()
         {
            HttpClient client = new HttpClient();

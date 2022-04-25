@@ -25,7 +25,7 @@
                     <Label Text="S.Fiyat"   FontSize="Body"  VerticalOptions="Center"   HorizontalTextAlignment="Center" Margin="0,0,0,0" ></Label>
                     <Label Text="A.Fiyat"   FontSize="Body"  VerticalOptions="Center"   HorizontalTextAlignment="Center" Margin="0,0,0,0" ></Label>
                 </StackLayout>
-                <ListView x:Name="lstStok" ItemsSource="{Binding}">
+                <ListView x:Name="lstStok" ItemsSource="{Binding}" ItemSelected="lstStok_ItemSelected">
                     <ListView.ItemTemplate >
                         <DataTemplate>
                             <ViewCell>

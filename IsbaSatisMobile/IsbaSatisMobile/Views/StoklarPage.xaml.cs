@@ -1,4 +1,5 @@
-﻿using IsbaSatisMobile.Provider;
+﻿using IsbaSatisMobile.Models;
+using IsbaSatisMobile.Provider;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,6 +45,10 @@ namespace IsbaSatisMobile.Views
             StokData();
         }
 
-       
+        private void lstStok_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            var selectedStok = (Stok)e.SelectedItem;
+            Navigation.PushAsync(new StokDetayPage(selectedStok));
+        }
     }
 }
