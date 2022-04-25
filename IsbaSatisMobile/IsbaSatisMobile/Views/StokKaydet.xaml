@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IsbaSatisMobile.Views.StokKaydet">
+
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <TableView Intent="Form">
+                <TableRoot>
+                    <TableSection Title="İnsert Stok Form">
+
+                        <SwitchCell x:Name="switcDurumu" Text="Durumu" On="False" ></SwitchCell>
+                        <EntryCell x:Name="txtStokAdi" Placeholder="Stok Adı"></EntryCell>
+                        <EntryCell x:Name="txtStokKodu" Placeholder="StokKodu"></EntryCell>
+                        <EntryCell x:Name="txtBarkod" Placeholder="Barkodu Griniz"></EntryCell>
+                        <EntryCell x:Name="txtSatisF" Placeholder="Satış Fiyatı" Keyboard="Numeric" ></EntryCell>
+                        <EntryCell x:Name="txtAlisF" Placeholder="Alış Fiyatı" Keyboard="Numeric"></EntryCell>
+                        <EntryCell x:Name="txtAlisKdv" Placeholder="Alış Kdv" Keyboard="Numeric"></EntryCell>
+                        <EntryCell x:Name="txtSatisKdv" Placeholder="Satış Kdv" Keyboard="Numeric"></EntryCell>
+                        <EntryCell x:Name="txtBirimi" Placeholder="Birimi"></EntryCell>
+                        <ViewCell>
+                            <Button x:Name="btnSave" Text="Kaydet" Clicked="btnSave_Clicked">
+                            </Button>
+
+                        </ViewCell>
+                    </TableSection>
+
+                </TableRoot>
+            </TableView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

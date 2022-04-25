@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IsbaSatisMobile.Views.StoklarPage"
+             x:Name="stkPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Refresh" Order="Primary"  Priority="0"/>
+        <ToolbarItem Text="Kaydet" Order="Secondary"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+
+
+        <StackLayout Orientation="Vertical">
+            <StackLayout >
+                <StackLayout HorizontalOptions="Center" VerticalOptions="Center" IsVisible="{Binding Source={x:Reference stkPage},Path=IsBusy}">
+                    <Label Text="Yükleniyor.." TextColor="silver" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+                    <ActivityIndicator IsRunning="{Binding Source={x:Reference stkPage},Path=IsBusy}" Color="OrangeRed"></ActivityIndicator>
+
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HeightRequest="40" >
+                    <Label Text="StokKodu"   FontSize="Body"  VerticalOptions="Center" WidthRequest="40"  HorizontalTextAlignment="Start" Margin="0,0,0,0" ></Label>
+                    <Label Text="Stok Adı"   FontSize="Body"  VerticalOptions="Center"   HorizontalTextAlignment="Start" Margin="22,0,0,0"></Label>
+                    <Label Text="Barkod"   FontSize="Body"  VerticalOptions="Center"   HorizontalTextAlignment="Center" Margin="48,0,0,0"></Label>
+                    <Label Text="Birim"   FontSize="Body"  VerticalOptions="Center"   HorizontalTextAlignment="Center" Margin="10,0,0,0" ></Label>
+                    <Label Text="S.Fiyat"   FontSize="Body"  VerticalOptions="Center"   HorizontalTextAlignment="Center" Margin="0,0,0,0" ></Label>
+                    <Label Text="A.Fiyat"   FontSize="Body"  VerticalOptions="Center"   HorizontalTextAlignment="Center" Margin="0,0,0,0" ></Label>
+                </StackLayout>
+                <ListView x:Name="lstStok" ItemsSource="{Binding}">
+                    <ListView.ItemTemplate >
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Grid Grid.Column="0" >
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="60"  />
+                                                <ColumnDefinition Width="110"/>
+                                                <ColumnDefinition Width="60"/>
+                                                <ColumnDefinition Width="35"/>
+                                                <ColumnDefinition Width="50"/>
+                                                <ColumnDefinition Width="50"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Text="{Binding StokKodu}" 
+                                                   FontSize="Default"
+                                                   VerticalOptions="Start"
+                                                   Margin="0,0,0,0"
+                                               HorizontalTextAlignment="Start"
+                                                   Grid.Column="0"/>
+                                            <Label Text="{Binding StokAdi}" 
+                                                    FontSize="Default"
+                                               VerticalOptions="Start"
+                                               HorizontalTextAlignment="Start"
+                                                   Margin="5,0,0,0"
+                                                   Grid.Column="1"/>
+
+                                            <Label Text="{Binding Barkod} " 
+                                                    VerticalOptions="Start"
+                                                   Margin="3,0,0,0" 
+                                               HorizontalTextAlignment="Start"
+                                                   Grid.Column="2"/>
+                                            <Label Text="{Binding Birimi} " 
+                                                   Margin="3,0,0,0"
+                                                     VerticalOptions="Start"    
+                                               HorizontalTextAlignment="Center"
+                                                   Grid.Column="3"/>
+                                            <Label Text="{Binding SatisFiyati1} " 
+                                                    VerticalOptions="Start"
+                                               HorizontalTextAlignment="Center"
+                                                   Grid.Column="4"/>
+                                            <Label Text="{Binding AlisFiyati1} " 
+                                                    VerticalOptions="Start"
+                                                   Margin="3,0,0,0"
+                                               HorizontalTextAlignment="Center"
+                                                   Grid.Column="5"/>
+                                        </Grid>
+                                    </Grid>
+                                </ViewCell.View>
+                            </ViewCell>
+
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Button Text="+" TextColor="GreenYellow"  FontSize="Title" Clicked="Kaydet_Clicked"></Button>
+                <Button Text="🔄" FontSize="Title" Clicked="Refresh_Cliced"></Button>
+            </StackLayout>
+
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>
+
+
+<!--<TextCell Text="{Binding StokAdi}" Detail="{Binding StokKodu}">
+
+</TextCell>-->
