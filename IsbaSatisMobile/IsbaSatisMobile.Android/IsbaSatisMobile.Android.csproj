@@ -96,7 +96,9 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Sil24x24.png" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\IsbaSatisMobile\IsbaSatisMobile.csproj">
       <Project>{AE48765F-8CFF-4D15-BBF0-F2E1D315D02C}</Project>

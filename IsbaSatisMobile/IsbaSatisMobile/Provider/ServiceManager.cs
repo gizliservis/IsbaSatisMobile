@@ -35,5 +35,23 @@ namespace IsbaSatisMobile.Provider
             httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/Json");
             httpClient.PostAsync(url + "StokEkle", httpContent);
         }
+        public void Sil(Stok stok)
+        {
+            var httpClient = new HttpClient();
+            var Json = JsonConvert.SerializeObject(stok);
+            HttpContent httpContent = new StringContent(Json);
+            httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/Json");
+            httpClient.PostAsync(url + "StokSil", httpContent);
+
+        }
+        public async void Guncelle(Stok stok)
+        {
+            var httpClient = new HttpClient();
+            var Json =  JsonConvert.SerializeObject(stok);
+            HttpContent httpContent = new StringContent(Json);
+            httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/Json");
+           await httpClient.PostAsync(url + "StokUpdate", httpContent);
+
+        }
     }
 }

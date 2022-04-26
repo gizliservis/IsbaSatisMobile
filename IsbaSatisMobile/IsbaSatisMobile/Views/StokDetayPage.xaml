@@ -18,8 +18,8 @@
                         <EntryCell x:Name="txtSatisKdv" Placeholder="Satış Kdv" Keyboard="Numeric"></EntryCell>
                         <EntryCell x:Name="txtBirimi" Placeholder="Birimi"></EntryCell>
                         <ViewCell>
-                            <!--<Button x:Name="btnSave" Text="Kaydet" Clicked="btnSave_Clicked">
-                            </Button>-->
+                            <Button x:Name="btnSave" Text="Kaydet" Clicked="btnSave_Clicked">
+                            </Button>
 
                         </ViewCell>
                     </TableSection>

@@ -2,6 +2,7 @@
 using IsbaSatisMobile.Provider;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,8 +16,10 @@ namespace IsbaSatisMobile.Views
     public partial class StoklarPage : ContentPage
     {
         readonly ServiceManager manager = new ServiceManager();
+        readonly IList<Stok>stoks=new ObservableCollection<Stok>();
         public StoklarPage()
         {
+            BindingContext = stoks;
             InitializeComponent();
             StokData();
         }
@@ -26,9 +29,13 @@ namespace IsbaSatisMobile.Views
             this.IsBusy = true;
             try
             {
-                await Task.Delay(5000);
+                stoks.Clear();
+                await Task.Delay(2000);
                 var colection = await manager.StokListele();
-                lstStok.BindingContext = colection;
+                foreach (Stok item in colection)
+                    stoks.Add(item);
+
+               // lstStok.BindingContext = colection;
             }
             finally
             {
@@ -47,8 +54,28 @@ namespace IsbaSatisMobile.Views
 
         private void lstStok_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var selectedStok = (Stok)e.SelectedItem;
-            Navigation.PushAsync(new StokDetayPage(selectedStok));
+            ListView lstView= (ListView)sender;
+            if (e.SelectedItem!=null)
+            {
+                var selectedStok = (Stok)e.SelectedItem;
+                Navigation.PushModalAsync(new StokDetayPage(selectedStok));
+            }
+            lstView.SelectedItem = null;
+   
+        }
+
+        private async void MenuItem_Clicked(object sender, EventArgs e)
+        {
+            var menuItem = (MenuItem)sender;
+            var selectedStok = (Stok)menuItem.CommandParameter;
+            var isOk = await DisplayAlert("", "Silmek İstediğinize Eminmisiniz", "Evet", "Hayır");
+
+            if (isOk)
+            {
+                manager.Sil(selectedStok);
+                stoks.Remove(selectedStok);
+
+            }
         }
     }
 }

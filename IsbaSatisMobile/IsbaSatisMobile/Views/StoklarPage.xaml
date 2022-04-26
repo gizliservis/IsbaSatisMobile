@@ -17,18 +17,18 @@
                     <ActivityIndicator IsRunning="{Binding Source={x:Reference stkPage},Path=IsBusy}" Color="OrangeRed"></ActivityIndicator>
 
                 </StackLayout>
-                <StackLayout Orientation="Horizontal" HeightRequest="40" >
+                <!--<StackLayout Orientation="Horizontal" HeightRequest="40" >
                     <Label Text="StokKodu"   FontSize="Body"  VerticalOptions="Center" WidthRequest="40"  HorizontalTextAlignment="Start" Margin="0,0,0,0" ></Label>
                     <Label Text="Stok Adı"   FontSize="Body"  VerticalOptions="Center"   HorizontalTextAlignment="Start" Margin="22,0,0,0"></Label>
                     <Label Text="Barkod"   FontSize="Body"  VerticalOptions="Center"   HorizontalTextAlignment="Center" Margin="48,0,0,0"></Label>
                     <Label Text="Birim"   FontSize="Body"  VerticalOptions="Center"   HorizontalTextAlignment="Center" Margin="10,0,0,0" ></Label>
                     <Label Text="S.Fiyat"   FontSize="Body"  VerticalOptions="Center"   HorizontalTextAlignment="Center" Margin="0,0,0,0" ></Label>
                     <Label Text="A.Fiyat"   FontSize="Body"  VerticalOptions="Center"   HorizontalTextAlignment="Center" Margin="0,0,0,0" ></Label>
-                </StackLayout>
-                <ListView x:Name="lstStok" ItemsSource="{Binding}" ItemSelected="lstStok_ItemSelected">
+                </StackLayout>-->
+                <ListView x:Name="lstStok" ItemsSource="{Binding}" ItemSelected="lstStok_ItemSelected" Margin="0,20,0,0" SeparatorColor="DarkOrange">
                     <ListView.ItemTemplate >
                         <DataTemplate>
-                            <ViewCell>
+                            <!--<ViewCell>
                                 <ViewCell.View>
                                     <Grid>
                                         <Grid.ColumnDefinitions>
@@ -78,10 +78,18 @@
                                                HorizontalTextAlignment="Center"
                                                    Grid.Column="5"/>
                                         </Grid>
+                                       
                                     </Grid>
+                            
                                 </ViewCell.View>
-                            </ViewCell>
-
+                            </ViewCell>-->
+                            <TextCell Text="{Binding StokKodu}" Detail="{Binding StokAdi}">
+                                <TextCell.ContextActions >
+                                    <MenuItem Text="Sil" IconImageSource="Sil24x24.png" CommandParameter="{Binding}"  IsDestructive="True" Clicked="MenuItem_Clicked">
+                                        
+                                    </MenuItem>
+                                </TextCell.ContextActions>
+                            </TextCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>

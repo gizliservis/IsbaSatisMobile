@@ -26,8 +26,8 @@ namespace IsbaSatisMobile.Models
         public string OzelKod4 { get; set; }
         public string GarantiSuresi { get; set; }
         public string UreticiKodu { get; set; }
-        public int AlisKdv { get; set; }
-        public int SatisKdv { get; set; }
+        public Nullable<int> AlisKdv { get; set; }
+        public Nullable<int> SatisKdv { get; set; }
         public Nullable<decimal> AlisFiyati1 { get; set; }
         public Nullable<decimal> AlisFiyati2 { get; set; }
         public Nullable<decimal> AlisFiyati3 { get; set; }
