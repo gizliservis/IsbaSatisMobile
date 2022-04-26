@@ -46,11 +46,18 @@ namespace IsbaSatisMobile.Views
                 stok.SatisKdv = Convert.ToInt32(txtSatisKdv.Text != null);
                 stok.AlisKdv = Convert.ToInt32(txtAlisKdv.Text != null);
 
-
-                ServiceManager manager = new ServiceManager();
-                manager.Guncelle(stok);
-                DisplayAlert("Başarılı", "Güncelleme Başarılı", "Ok");
-                Navigation.PopModalAsync();
+                if (txtStokKodu.Text !="" && txtStokAdi.Text !="" && txtBarkod.Text!=""  )
+                {
+                    ServiceManager manager = new ServiceManager();
+                    manager.Guncelle(stok);
+                    DisplayAlert("Başarılı", "Güncelleme Başarılı", "Ok");
+                    Navigation.PopModalAsync();
+                }
+                else
+                {
+                    DisplayAlert("Başarısız !!!", "Güncelleme Başarısız", "Ok");
+                }
+              
             }
             catch (Exception ex)
             {

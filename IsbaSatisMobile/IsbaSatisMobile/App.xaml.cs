@@ -1,4 +1,5 @@
-﻿using IsbaSatisMobile.Views;
+﻿using IsbaSatisMobile.MasterSayfa;
+using IsbaSatisMobile.Views;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,7 +12,7 @@ namespace IsbaSatisMobile
         {
             InitializeComponent();
 
-            MainPage = new StoklarPage();
+            MainPage = new TabbedPage1();
         }
 
         protected override void OnStart()

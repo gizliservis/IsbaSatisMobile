@@ -46,6 +46,7 @@ namespace IsbaSatisMobile.Views
         private void Kaydet_Clicked(object sender, EventArgs e)
         {
             Navigation.PushModalAsync(new StokKaydet());
+            StokData();
         }
         private void Refresh_Cliced(object sender, EventArgs e)
         {
@@ -74,7 +75,7 @@ namespace IsbaSatisMobile.Views
             {
                 manager.Sil(selectedStok);
                 stoks.Remove(selectedStok);
-
+                StokData();
             }
         }
     }

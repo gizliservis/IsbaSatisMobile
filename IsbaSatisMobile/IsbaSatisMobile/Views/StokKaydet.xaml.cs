@@ -41,10 +41,28 @@ namespace IsbaSatisMobile.Views
                     SatisKdv = Convert.ToInt32(txtSatisKdv.Text),
                     Birimi = txtBirimi.Text,
                 };
-                ServiceManager manager = new ServiceManager();
-                manager.ekle(stk);
-                DisplayAlert("Eklendi", "Başarılı Bir Şekilde \n Ekleme İşlemi gerçekleştirildi.", "OK");
-                Navigation.PopModalAsync();
+                if (stk.StokAdi!=null && stk.StokKodu!=null && stk.Barkod!=null)
+                {
+                    ServiceManager manager = new ServiceManager();
+                    manager.ekle(stk);
+                    DisplayAlert("Eklendi", "Başarılı Bir Şekilde \n Ekleme İşlemi gerçekleştirildi.", "OK");
+                    txtAlisF.Text = null;
+                    txtAlisKdv.Text = null;
+                    txtSatisF.Text = null;
+                    txtSatisKdv.Text = null;
+                    txtBirimi.Text = null;
+                    txtBarkod.Text = null;
+                    txtStokKodu.Text = null;
+                    txtStokAdi.Text = null;
+
+                    Navigation.PopModalAsync();
+                }
+                else
+                {
+                    DisplayAlert("Eklenemedi!!!", "Lütfen Kontrol Ediniz.", "OK");
+                }
+              
+           
             }
             catch (Exception)
             {
