@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IsbaSatisMobile.Views;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -13,31 +14,31 @@ using Xamarin.Forms.Xaml;
 namespace IsbaSatisMobile.MasterSayfa
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class FlyoutPage1Flyout : ContentPage
+    public partial class AnaFlyout : ContentPage
     {
         public ListView ListView;
-
-        public FlyoutPage1Flyout()
+       public StoklarPage stk=new StoklarPage();
+        public AnaFlyout()
         {
             InitializeComponent();
 
-            BindingContext = new FlyoutPage1FlyoutViewModel();
+            BindingContext = new AnaFlyoutViewModel();
             ListView = MenuItemsListView;
         }
 
-        private class FlyoutPage1FlyoutViewModel : INotifyPropertyChanged
+        private class AnaFlyoutViewModel : INotifyPropertyChanged
         {
-            public ObservableCollection<FlyoutPage1FlyoutMenuItem> MenuItems { get; set; }
+            public List<AnaFlyoutMenuItem> MenuItems { get; set; }
 
-            public FlyoutPage1FlyoutViewModel()
+            public AnaFlyoutViewModel()
             {
-                MenuItems = new ObservableCollection<FlyoutPage1FlyoutMenuItem>(new[]
+                MenuItems = new List<AnaFlyoutMenuItem>(new[]
                 {
-                    new FlyoutPage1FlyoutMenuItem { Id = 0, Title = "Stoklar Listesi" },
-                    new FlyoutPage1FlyoutMenuItem { Id = 1, Title = "Page 2" },
-                    new FlyoutPage1FlyoutMenuItem { Id = 2, Title = "Page 3" },
-                    new FlyoutPage1FlyoutMenuItem { Id = 3, Title = "Page 4" },
-                    new FlyoutPage1FlyoutMenuItem { Id = 4, Title = "Page 5" },
+                    new AnaFlyoutMenuItem { Id = 0, Title = "Stoklar Listesi",TargetType=typeof(StoklarPage)},
+                    new AnaFlyoutMenuItem { Id = 1, Title = "Cari Listesi",TargetType=typeof(CarilerPage)},
+                    //new AnaFlyoutMenuItem { Id = 2, Title = "Page 3" },
+                    //new AnaFlyoutMenuItem { Id = 3, Title = "Page 4" },
+                    //new AnaFlyoutMenuItem { Id = 4, Title = "Page 5" },
                 });
             }
 

@@ -11,16 +11,16 @@ using Xamarin.Forms.Xaml;
 namespace IsbaSatisMobile.MasterSayfa
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class TabbedPage1 : TabbedPage
+    public partial class AnaDetail : ContentPage
     {
-        public TabbedPage1()
+        public AnaDetail()
         {
             InitializeComponent();
-            //var tabbedpage = new ScrollableTabbedPage();
-            Children.Add(new StoklarPage());
-            Children.Add(new StokKaydet());
-        
-            
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushModalAsync(new StoklarPage());
         }
     }
 }

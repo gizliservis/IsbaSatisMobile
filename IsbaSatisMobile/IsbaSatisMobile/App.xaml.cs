@@ -12,7 +12,7 @@ namespace IsbaSatisMobile
         {
             InitializeComponent();
 
-            MainPage = new TabbedPage1();
+            MainPage = new FaturaKaydetPage();
         }
 
         protected override void OnStart()

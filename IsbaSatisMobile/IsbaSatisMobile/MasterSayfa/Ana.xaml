@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <FlyoutPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="IsbaSatisMobile.MasterSayfa.FlyoutPage1"
+             x:Class="IsbaSatisMobile.MasterSayfa.Ana"
              xmlns:pages="clr-namespace:IsbaSatisMobile.MasterSayfa">
   <FlyoutPage.Flyout>
-    <pages:FlyoutPage1Flyout x:Name="FlyoutPage" />
+    <pages:AnaFlyout x:Name="FlyoutPage" />
   </FlyoutPage.Flyout>
   <FlyoutPage.Detail>
     <NavigationPage>
       <x:Arguments>
-        <pages:FlyoutPage1Detail />
+        <pages:AnaDetail />
       </x:Arguments>
     </NavigationPage>
   </FlyoutPage.Detail>

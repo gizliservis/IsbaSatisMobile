@@ -23,9 +23,17 @@ namespace IsbaSatisMobile.Provider
         {
             HttpClient client=await GetClient();
             var result = await client.GetStringAsync(url + "StokListele");
+            var resul2 = JsonConvert.DeserializeObject<IEnumerable<Stok>>(result);
+            return resul2;
+        }
+        public async Task<IEnumerable<Stok>> StokListeleFilter()
+        {
+            HttpClient client = await GetClient();
+            var result = await client.GetStringAsync(url + "StokListeleFilter");
             var resul2 = JsonConvert.DeserializeObject<IEnumerable<Stok>>(result.ToString());
             return resul2;
         }
+
         public void ekle(Stok stok)
         {
            
@@ -52,6 +60,31 @@ namespace IsbaSatisMobile.Provider
             httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/Json");
            await httpClient.PostAsync(url + "StokUpdate", httpContent);
 
+        }
+        public async Task<IEnumerable<Cari>> CariListele()
+        {
+            HttpClient client = await GetClient();
+            var result = await client.GetStringAsync(url + "CariListele");
+            var resul2 = JsonConvert.DeserializeObject<IEnumerable<Cari>>(result);
+            return resul2;
+        }
+        public void CariSil(Cari cari)
+        {
+            var httpClient = new HttpClient();
+            var Json = JsonConvert.SerializeObject(cari);
+            HttpContent httpContent = new StringContent(Json);
+            httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/Json");
+            httpClient.PostAsync(url + "CariSil", httpContent);
+
+        }
+        public void Cariekle(Cari cari)
+        {
+
+            var httpClient = new HttpClient();
+            var Json = JsonConvert.SerializeObject(cari);
+            HttpContent httpContent = new StringContent(Json);
+            httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/Json");
+            httpClient.PostAsync(url + "CariEkle", httpContent);
         }
     }
 }

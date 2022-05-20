@@ -1,39 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="IsbaSatisMobile.Views.StoklarPage"
-             xmlns:syncfusion="clr-namespace:Syncfusion.XForms.TreeView;assembly=Syncfusion.SfTreeView.XForms"
-                   xmlns:treeviewengine="clr-namespace:Syncfusion.TreeView.Engine;assembly=Syncfusion.SfTreeView.XForms"
-             
-             x:Name="stkPage" Title="Stoklar Listesi">
-    <ContentPage.ToolbarItems>
-        <ToolbarItem x:Name="Yenile" Text="Refresh" Order="Secondary" Clicked="Yenile_Clicked" Priority="0" />
-        <ToolbarItem x:Name="ekle" Text="Kaydet" Order="Secondary" Priority="0" Clicked="ekle_Clicked"/>
-    </ContentPage.ToolbarItems>
+             x:Class="IsbaSatisMobile.Views.FaturaKaydetPage"
+             x:Name="stkPage" Title="Stoklar Listesi"
+             >
     <ContentPage.Content>
-
-
-      
         <StackLayout Orientation="Vertical">
-            <StackLayout >
-                
-                <StackLayout HorizontalOptions="Center" VerticalOptions="Center" IsVisible="{Binding Source={x:Reference stkPage},Path=IsBusy}">
-                    <Label Text="Yükleniyor.." TextColor="silver" HorizontalOptions="Center" VerticalOptions="Center"></Label>
-                    <ActivityIndicator IsRunning="{Binding Source={x:Reference stkPage},Path=IsBusy}" Color="OrangeRed"></ActivityIndicator>
+            <StackLayout Orientation="Vertical">
+                <TableView Intent="Form">
+                    <TableRoot>
+                        <TableSection Title="İnsert Stok Form">
+                            <EntryCell x:Name="txtCariAdi"  Placeholder="Cari Adı"></EntryCell>
+                            <EntryCell x:Name="txtCariKodu" Placeholder="Cari Kodu"></EntryCell>
+                            <EntryCell x:Name="txtFaturaUnvani" Placeholder="Fatura Unvanı"></EntryCell>
+                            <EntryCell x:Name="txtIl" Placeholder="İl"></EntryCell>
+                            <EntryCell x:Name="txtIlce" Placeholder="İlçe"></EntryCell>
+                            <EntryCell x:Name="txtAdres" Placeholder="Adres"></EntryCell>
+                        </TableSection>
 
-                </StackLayout>
-                <StackLayout Orientation="Horizontal" HeightRequest="40" >
-                    <SearchBar Placeholder="Ürün Ara" TextChanged="SearchBar_TextChanged" PlaceholderColor="White" TextColor="GhostWhite"/>
-                    <!--<Entry x:Name="txtStkKodu" Placeholder="StokKodu"   FontSize="Body"  VerticalOptions="Center" WidthRequest="40"  HorizontalTextAlignment="Start" Margin="0,0,0,0" ></Entry>
-                    <Entry x:Name="txtStkAdi" Placeholder="StokAdı"   FontSize="Body"  VerticalOptions="Center"   HorizontalTextAlignment="Start" Margin="22,0,0,0"></Entry>
-                    <Entry x:Name="txtBarkod" Placeholder="Barkod"   FontSize="Body"  VerticalOptions="Center"   HorizontalTextAlignment="Center" Margin="48,0,0,0"></Entry>
-                    <Button x:Name="btnFiltre" Text="Filtrele" ></Button>--> 
-                </StackLayout>
-                <ListView x:Name="lstStok" ItemsSource="{Binding}" ItemSelected="lstStok_ItemSelected" Margin="0,20,0,0" SeparatorColor="DarkOrange">
+                    </TableRoot>
+                </TableView>
+            </StackLayout>
+            <StackLayout>
+                <ListView x:Name="lstStok" ItemsSource="{Binding}"  Margin="0,20,0,0" SeparatorColor="DarkOrange">
                     <ListView.ItemTemplate >
                         <DataTemplate>
-                           
-                            <!--<ViewCell>
+
+                            <ViewCell>
                                 <ViewCell.View>
                                     <Grid>
                                         <Grid.ColumnDefinitions>
@@ -50,13 +43,13 @@
                                                 <ColumnDefinition Width="50"/>
                                                 <ColumnDefinition Width="50"/>
                                             </Grid.ColumnDefinitions>
-                                            <Label Text="{Binding StokKodu}" 
+                                            <Label Text="{Binding StokAdi}" 
                                                    FontSize="Default"
                                                    VerticalOptions="Start"
                                                    Margin="0,0,0,0"
                                                HorizontalTextAlignment="Start"
                                                    Grid.Column="0"/>
-                                            <Label Text="{Binding StokAdi}" 
+                                            <Label Text="{Binding StokKodu}" 
                                                     FontSize="Default"
                                                VerticalOptions="Start"
                                                HorizontalTextAlignment="Start"
@@ -87,31 +80,20 @@
                                     </Grid>
                             
                                 </ViewCell.View>
-                            </ViewCell>-->
-                            
-                            <TextCell Text="{Binding StokKodu}" Detail="{Binding StokAdi}">
-                                <TextCell.ContextActions >
-                                    <MenuItem Text="Sil" IconImageSource="Sil24x24.png" CommandParameter="{Binding}"  IsDestructive="True" Clicked="MenuItem_Clicked">
-                                        
-                                    </MenuItem>
-                                </TextCell.ContextActions>
-                            </TextCell>
+                            </ViewCell>
+
+                            <!--<TextCell Text="{Binding StokAdi}" Detail="{Binding StokKodu}" DetailColor="YellowGreen">
+                                --><!--<TextCell.ContextActions >
+                                    --><!--<MenuItem Text="Sil" IconImageSource="Sil24x24.png" CommandParameter="{Binding}"  IsDestructive="True" Clicked="MenuItem_Clicked">
+
+                                </MenuItem>--><!--
+                                </TextCell.ContextActions>--><!--
+                            </TextCell>-->
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
             </StackLayout>
-
-            <!--<StackLayout Orientation="Horizontal">
-                <Button Text="+" TextColor="GreenYellow"  FontSize="Title" Clicked="Kaydet_Clicked"></Button>
-                <Button Text="🔄" FontSize="Title" Clicked="Refresh_Cliced"></Button>
-            </StackLayout>-->
-
+            
         </StackLayout>
-
     </ContentPage.Content>
 </ContentPage>
-
-
-<!--<TextCell Text="{Binding StokAdi}" Detail="{Binding StokKodu}">
-
-</TextCell>-->

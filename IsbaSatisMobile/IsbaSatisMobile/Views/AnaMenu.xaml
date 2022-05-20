@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                          xmlns:syncfusion="clr-namespace:Syncfusion.XForms.TreeView;assembly=Syncfusion.SfTreeView.XForms"
+                   xmlns:treeviewengine="clr-namespace:Syncfusion.TreeView.Engine;assembly=Syncfusion.SfTreeView.XForms" 
+             x:Class="IsbaSatisMobile.Views.AnaMenu">
+    <ContentPage.Content>
+        <StackLayout>
+            <SearchBar Placeholder="Search TreeView" x:Name="searchBar"/>
+            <syncfusion:SfTreeView x:Name="treeView" ChildPropertyName="SubFiles" ItemTemplateContextType="Node" AutoExpandMode="AllNodesExpanded">
+                <syncfusion:SfTreeView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid x:Name="grid" RowSpacing="0"  >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40" />
+                                <ColumnDefinition Width="40" />
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="1" RowSpacing="1" Padding="1,0,0,0" VerticalOptions="Center">
+                                <Label x:Name="rcd" LineBreakMode="NoWrap" Text="adasfd" VerticalTextAlignment="Center" BackgroundColor="Aqua" />
+                            </Grid>
+                        </Grid>
+                    </DataTemplate>
+                </syncfusion:SfTreeView.ItemTemplate>
+            </syncfusion:SfTreeView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

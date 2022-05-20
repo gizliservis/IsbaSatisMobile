@@ -1,38 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="IsbaSatisMobile.Views.StoklarPage"
-             xmlns:syncfusion="clr-namespace:Syncfusion.XForms.TreeView;assembly=Syncfusion.SfTreeView.XForms"
-                   xmlns:treeviewengine="clr-namespace:Syncfusion.TreeView.Engine;assembly=Syncfusion.SfTreeView.XForms"
-             
-             x:Name="stkPage" Title="Stoklar Listesi">
+             x:Class="IsbaSatisMobile.Views.CarilerPage"
+             x:Name="CrPage" Title="Cariler Listesi"
+             >
     <ContentPage.ToolbarItems>
         <ToolbarItem x:Name="Yenile" Text="Refresh" Order="Secondary" Clicked="Yenile_Clicked" Priority="0" />
         <ToolbarItem x:Name="ekle" Text="Kaydet" Order="Secondary" Priority="0" Clicked="ekle_Clicked"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-
-
-      
         <StackLayout Orientation="Vertical">
             <StackLayout >
-                
-                <StackLayout HorizontalOptions="Center" VerticalOptions="Center" IsVisible="{Binding Source={x:Reference stkPage},Path=IsBusy}">
+
+                <StackLayout HorizontalOptions="Center" VerticalOptions="Center" IsVisible="{Binding Source={x:Reference CrPage},Path=IsBusy}">
                     <Label Text="Yükleniyor.." TextColor="silver" HorizontalOptions="Center" VerticalOptions="Center"></Label>
-                    <ActivityIndicator IsRunning="{Binding Source={x:Reference stkPage},Path=IsBusy}" Color="OrangeRed"></ActivityIndicator>
+                    <ActivityIndicator IsRunning="{Binding Source={x:Reference CrPage},Path=IsBusy}" Color="OrangeRed"></ActivityIndicator>
 
                 </StackLayout>
                 <StackLayout Orientation="Horizontal" HeightRequest="40" >
-                    <SearchBar Placeholder="Ürün Ara" TextChanged="SearchBar_TextChanged" PlaceholderColor="White" TextColor="GhostWhite"/>
+                    <SearchBar Placeholder="Cari Ara" TextChanged="SearchBar_TextChanged" PlaceholderColor="White" TextColor="GhostWhite"/>
                     <!--<Entry x:Name="txtStkKodu" Placeholder="StokKodu"   FontSize="Body"  VerticalOptions="Center" WidthRequest="40"  HorizontalTextAlignment="Start" Margin="0,0,0,0" ></Entry>
                     <Entry x:Name="txtStkAdi" Placeholder="StokAdı"   FontSize="Body"  VerticalOptions="Center"   HorizontalTextAlignment="Start" Margin="22,0,0,0"></Entry>
                     <Entry x:Name="txtBarkod" Placeholder="Barkod"   FontSize="Body"  VerticalOptions="Center"   HorizontalTextAlignment="Center" Margin="48,0,0,0"></Entry>
-                    <Button x:Name="btnFiltre" Text="Filtrele" ></Button>--> 
+                    <Button x:Name="btnFiltre" Text="Filtrele" ></Button>-->
                 </StackLayout>
                 <ListView x:Name="lstStok" ItemsSource="{Binding}" ItemSelected="lstStok_ItemSelected" Margin="0,20,0,0" SeparatorColor="DarkOrange">
                     <ListView.ItemTemplate >
                         <DataTemplate>
-                           
+
                             <!--<ViewCell>
                                 <ViewCell.View>
                                     <Grid>
@@ -88,11 +83,11 @@
                             
                                 </ViewCell.View>
                             </ViewCell>-->
-                            
-                            <TextCell Text="{Binding StokKodu}" Detail="{Binding StokAdi}">
+
+                            <TextCell Text="{Binding CariAdi}" Detail="{Binding Bakiye}" DetailColor="YellowGreen">
                                 <TextCell.ContextActions >
                                     <MenuItem Text="Sil" IconImageSource="Sil24x24.png" CommandParameter="{Binding}"  IsDestructive="True" Clicked="MenuItem_Clicked">
-                                        
+
                                     </MenuItem>
                                 </TextCell.ContextActions>
                             </TextCell>
@@ -107,11 +102,5 @@
             </StackLayout>-->
 
         </StackLayout>
-
     </ContentPage.Content>
 </ContentPage>
-
-
-<!--<TextCell Text="{Binding StokAdi}" Detail="{Binding StokKodu}">
-
-</TextCell>-->

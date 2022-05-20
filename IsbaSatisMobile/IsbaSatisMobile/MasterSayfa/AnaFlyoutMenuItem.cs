@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace IsbaSatisMobile.MasterSayfa
 {
-    public class FlyoutPage1FlyoutMenuItem
+    public class AnaFlyoutMenuItem
     {
-        public FlyoutPage1FlyoutMenuItem()
+        public AnaFlyoutMenuItem()
         {
-            TargetType = typeof(FlyoutPage1FlyoutMenuItem);
+            TargetType = typeof(AnaFlyoutMenuItem);
         }
         public int Id { get; set; }
         public string Title { get; set; }

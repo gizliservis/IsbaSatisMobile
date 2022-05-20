@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IsbaSatisMobile.Views.CariEklePage">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <TableView Intent="Form">
+                <TableRoot>
+                    <TableSection Title="İnsert Stok Form">
+                        <EntryCell x:Name="txtCariAdi" Placeholder="Cari Adı"></EntryCell>
+                        <EntryCell x:Name="txtCariKodu" Placeholder="Cari Kodu"></EntryCell>
+                        <EntryCell x:Name="txtFaturaUnvani" Placeholder="Fatura Unvanı"></EntryCell>
+                        <EntryCell x:Name="txtCariGrubu" Placeholder="CariGrubu"></EntryCell>
+                        <EntryCell x:Name="txtCariTuru" Placeholder="CariTuru"></EntryCell>
+                        <EntryCell x:Name="txtIl" Placeholder="İl"></EntryCell>
+                        <EntryCell x:Name="txtIlce" Placeholder="İlçe"></EntryCell>
+                        <EntryCell x:Name="txtAdres" Placeholder="Adres"></EntryCell>
+                        <ViewCell>
+                            <Button x:Name="btnSave" Text="Kaydet" Clicked="btnSave_Clicked">
+                            </Button>
+
+                        </ViewCell>
+                    </TableSection>
+
+                </TableRoot>
+            </TableView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

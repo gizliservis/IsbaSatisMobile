@@ -19,11 +19,15 @@ namespace IsbaSatisMobile.Views
         readonly IList<Stok>stoks=new ObservableCollection<Stok>();
         public StoklarPage()
         {
-            BindingContext = stoks;
+            
             InitializeComponent();
-            StokData();
+            BindingContext = stoks;
+           StokData();
+       
+           
         }
 
+  
         private async void StokData()
         {
             this.IsBusy = true;
@@ -77,6 +81,32 @@ namespace IsbaSatisMobile.Views
                 stoks.Remove(selectedStok);
                 StokData();
             }
+        }
+
+        private void TreeViewNode_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            
+        }
+
+        private void treeView_Focused(object sender, FocusEventArgs e)
+        {
+            DisplayAlert("", "Silmek İstediğinize Eminmisiniz", "Evet", "Hayır");
+        }
+
+        private void Yenile_Clicked(object sender, EventArgs e)
+        {
+            StokData();
+        }
+
+        private void ekle_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushModalAsync(new StokKaydet());
+            StokData();
+        }
+
+        private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            lstStok.ItemsSource = stoks.Where(c => c.StokAdi.StartsWith(e.NewTextValue) || c.StokKodu.StartsWith(e.NewTextValue));
         }
     }
 }

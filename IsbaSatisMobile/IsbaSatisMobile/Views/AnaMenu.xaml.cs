@@ -7,14 +7,15 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace IsbaSatisMobile.MasterSayfa
+namespace IsbaSatisMobile.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class FlyoutPage1Detail : ContentPage
+    public partial class AnaMenu : ContentPage
     {
-        public FlyoutPage1Detail()
+        public AnaMenu()
         {
             InitializeComponent();
+         
         }
     }
 }

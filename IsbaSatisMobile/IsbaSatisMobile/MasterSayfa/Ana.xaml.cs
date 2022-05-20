@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -6,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace IsbaSatisMobile.MasterSayfa
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class FlyoutPage1 : FlyoutPage
+    public partial class Ana : FlyoutPage
     {
-        public FlyoutPage1()
+        public Ana()
         {
             InitializeComponent();
             FlyoutPage.ListView.ItemSelected += ListView_ItemSelected;
@@ -16,7 +20,7 @@ namespace IsbaSatisMobile.MasterSayfa
 
         private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var item = e.SelectedItem as FlyoutPage1FlyoutMenuItem;
+            var item = e.SelectedItem as AnaFlyoutMenuItem;
             if (item == null)
                 return;
 
