@@ -17,6 +17,7 @@ namespace IsbaSatisMobile.Views
     {
         readonly IList<Stok> stoks = new ObservableCollection<Stok>();
         readonly ServiceManager manager = new ServiceManager();
+        readonly IList<Stok>Estoks=new ObservableCollection<Stok>();
         public FaturaKaydetPage()
         {
             InitializeComponent();
@@ -34,6 +35,7 @@ namespace IsbaSatisMobile.Views
                 var colection = await manager.StokListele();
                 foreach (Stok item in colection)
                     stoks.Add(item);
+                
 
                 // lstStok.BindingContext = colection;
             }
